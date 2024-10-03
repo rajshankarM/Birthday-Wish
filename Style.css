@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f0f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+}
+
+/* Birthday Box */
+.box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.lid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #ff6500;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.5s ease;
+}
+
+.box-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.message {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-top: 2rm;
+}
+
+/* Balloon Blast */
+.balloon-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.balloon {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 70px;
+  background-color: #ffa07a;
+  border-radius: 50%;
+  animation: floatUp 3s ease-in-out forwards;
+}
+
+#balloon1 {
+  left: 20%;
+  background-color: #ff69b4;
+}
+
+#balloon2 {
+  left: 50%;
+  background-color: #32cd32;
+}
+
+#balloon3 {
+  left: 80%;
+  background-color: #ffa500;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+}
+
+/* Confetti Shower */
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.confetti::before,
+.confetti::after {
+  content: "";
+  position: absolute;
+  top: -100px;
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  animation: confettiFall 2s infinite ease-in-out;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.confetti::before {
+  left: 20%;
+  background-color: yellow;
+  animation-delay: 0.5s;
+}
+
+.confetti::after {
+  left: 70%;
+  background-color: blue;
+  animation-delay: 1s;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(45deg);
+  }
+  100% {
+    transform: translateY(800px) rotate(90deg);
+  }
+}
